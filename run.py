@@ -56,7 +56,7 @@ def adjust_and_crop_image(file_path):
         
         # Resize image with a white background for aspect ratios far from 16:9
         new_img = Image.new("RGB", (new_width, new_height), "white")
-        img.thumbnail((new_width, new_height), Image.LANCZOS)
+        img.thumbnail((new_width, new_height), Image.Resampling.LANCZOS)
         x = (new_width - img.size[0]) // 2
         y = (new_height - img.size[1]) // 2
         new_img.paste(img, (x, y))
